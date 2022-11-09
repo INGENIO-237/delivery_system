@@ -10,23 +10,19 @@
                 <div class="card-body">
                     <h4 class="text-center text-uppercase mb-3">
                         <b>
-                            {% if request.GET.next != '/courier/' %}
-                                Customer
-                            {% else %}
-                                Courier
-                            {% endif %}
+                            Register
                         </b>
                     </h4>
                     <form method="POST">
                         {% csrf_token %}
                         {% bootstrap_form_errors form %}
-                        {% bootstrap_label "Email" %}
-                        {% bootstrap_field form.username show_label=False placeholder="Email" %}
-                        {% bootstrap_field form.password %}
+                        {% bootstrap_form form %}
                         <button type="submit" class="btn btn-warning btn-block">
-                            Log in
+                            Register
                         </button>
-                        <p class="text-center mt-3">Don't yet have an account ? <a href="{% url 'register' %}">Register</a></p>
+                        <p class="text-center mt-3">
+                            Already have an account ? <a href="{% url 'login' %}">Login</a>
+                        </p>
                     </form>
                 </div>
             </div>
